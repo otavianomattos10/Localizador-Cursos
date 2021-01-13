@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Meu Perfil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-border>
+
+    <form [formGroup]="formCadastro">
+
+      <ion-item>
+        <ion-label floating>Nome Completo</ion-label>
+        <ion-input type="text" formControlName="nome"></ion-input>
+        <div item-content>
+          <p *ngIf="formCadastro.hasError('required', 'nome')">Esse campo é obrigatório</p>
+          <p *ngIf="formCadastro.hasError('minlength', 'nome')">O campo deve ter no mínimo 3 caracteres</p>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Endereço</ion-label>
+        <ion-input formControlName="endereco"></ion-input>
+        <div item-content>
+          <p *ngIf="formCadastro.hasError('required', 'endereco')">Esse campo é obrigatório</p>
+          <p *ngIf="formCadastro.hasError('minlength', 'endereco')">O campo deve ter no mínimo 3 caracteres</p>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Número</ion-label>
+        <ion-input formControlName="numerolocal" [brmasker]="{mask:'00000', len:5, type:'num'}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Bairro</ion-label>
+        <ion-input formControlName="bairro"></ion-input>
+        <div item-content>
+          <p *ngIf="formCadastro.hasError('required', 'bairro')">Esse campo é obrigatório</p>
+          <p *ngIf="formCadastro.hasError('minlength', 'bairro')">O campo deve ter no mínimo 3 caracteres</p>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Estado</ion-label>
+        <ion-select formControlName="estado" [selectOptions]="ufLocOpts">
+          <ion-option *ngFor="let p of estadoCurso" selected="this.dadosCadastrais[0].ESTADO"
+            (ionSelect)="stpSelectUf(p)">{{p.NOME}}</ion-option>
+        </ion-select>
+        <div item-content>
+          <p *ngIf="formCadastro.hasError('required', 'estado')">Esse campo é obrigatório</p>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Cidade</ion-label>
+        <ion-select formControlName="cidade" [selectOptions]="cidadeLocOpts">
+          <ion-option *ngFor="let p of cidadeCurso" selected="this.dadosCadastrais[0].CIDADE"
+          (ionSelect)="stpSelectCity(p.NOME)">{{p.NOME}}</ion-option>
+        </ion-select>
+        <div item-content>
+          <p *ngIf="formCadastro.hasError('required', 'cidade')">Esse campo é obrigatório</p>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Cep</ion-label>
+        <ion-input formControlName="cep" [brmasker]="{mask:'00000-000', len:9, type:'num'}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Telefone</ion-label>
+        <ion-input formControlName="telefone" [brmasker]="{phone: true}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Celular</ion-label>
+        <ion-input formControlName="celular" [brmasker]="{phone: true}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>WhatsApp</ion-label>
+        <ion-input formControlName="whatsapp" [brmasker]="{phone: true}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Site</ion-label>
+        <ion-input formControlName="site"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>E-mail</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+        <div item-content>
+          <p *ngIf="formCadastro.hasError('required', 'email')">Esse campo é obrigatório</p>
+          <p *ngIf="formCadastro.hasError('email', 'email')">O formato do e-mail não atende aos requisitos</p>
+        </div>
+      </ion-item>
+
+    </form>
+
+  </ion-list>
+
+  <ion-item>
+    <ion-footer>
+      <ion-toolbar>
+        <button ion-button expand full (click)="onSubmit()" [disabled]="!formCadastro.valid">
+          Enviar
+        </button>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-item>
+
+</ion-content>

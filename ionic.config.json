@@ -1,0 +1,7 @@
+{
+  "name": "Study",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

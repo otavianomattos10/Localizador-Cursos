@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STUDYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CURSO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="UFCURSO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCUF" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CIDADE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CATEGCURSO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INSTITUICAO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VALOR" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DISTANCIA" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="CURSO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LATITUDE" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="LONGITUDE" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="ICONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ENDERECO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="NUMRESIDENCIA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="BAIRRO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONE" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="DETALHE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="WEBSITE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ATIVO" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="EMAILUSUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CARGAHORARIA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="VAGAS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="DATAINICIO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="STUDYEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CURSOS" EntityType="Self.CURSO" />
+    <EntitySet Name="USUARIOS" EntityType="STUDYModel.USUARIO" />
+    <EntitySet Name="PUBLICIDADEs" EntityType="STUDYModel.PUBLICIDADE" />
+    <EntitySet Name="ESTADOS" EntityType="STUDYModel.ESTADO" />
+    <EntitySet Name="MUNICIPIOS" EntityType="STUDYModel.MUNICIPIO" />
+    <EntitySet Name="CATEGORIAS" EntityType="STUDYModel.CATEGORIA" />
+    <EntitySet Name="CURSOSFAVORITOS" EntityType="STUDYModel.CURSOSFAVORITO" />
+  </EntityContainer>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NOMECOMPLETO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ENDERECO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="NUMEROLOCAL" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="BAIRRO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CIDADE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PAIS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONE" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="CELULAR" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="WHATSAPP" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="EMAILCOMERCIAL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="WEBSITE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UF" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="LATITUDE" Type="Decimal" Precision="18" Scale="8" />
+    <Property Name="LONGITUDE" Type="Decimal" Precision="18" Scale="8" />
+  </EntityType>
+  <EntityType Name="PUBLICIDADE">
+    <Key>
+      <PropertyRef Name="INSTITUICAO" />
+      <PropertyRef Name="ATIVO" />
+    </Key>
+    <Property Name="INSTITUICAO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ATIVO" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ESTADO">
+    <Key>
+      <PropertyRef Name="CODIGO_UF" />
+    </Key>
+    <Property Name="CODIGO_UF" Type="Int32" Nullable="false" />
+    <Property Name="UF" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="NOME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MUNICIPIO">
+    <Key>
+      <PropertyRef Name="CODIGO_IBGE" />
+    </Key>
+    <Property Name="CODIGO_IBGE" Type="Int32" Nullable="false" />
+    <Property Name="NOME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LATITUDE" Type="Single" Nullable="false" />
+    <Property Name="LONGITUDE" Type="Single" Nullable="false" />
+    <Property Name="CAPITAL" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CODIGO_UF" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CATEGORIA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CURSOSFAVORITO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IDCURSO" Type="Int32" />
+    <Property Name="CURSO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

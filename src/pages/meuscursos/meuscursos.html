@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="incluirCurso()">Incluir Curso</button>
+    </ion-buttons>
+    <ion-title>Meus Cursos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let curso of cursos" (click)="cursoSelecionado(curso)">
+    <ion-card-content>
+      <ion-card-title>
+        <ion-row>
+          <ion-col>
+            <img src="{{curso.IMAGEMCURSO}}" />
+          </ion-col>
+          <ion-col class="ion-no-margin" col-9>
+            <ion-row>
+              <ion-label class="font-header">{{curso.INSTITUICAO}}</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-label class="font-detail">Categoria : {{curso.CATEGCURSO}}</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-label class="font-detail">Curso: {{curso.CURSO1}}</ion-label>
+            </ion-row>
+            <ion-col>
+              <ion-row>
+                <ion-label class="font-detail-money">R{{curso.VALOR | currency}}*</ion-label>
+                <ion-label class="font-detail-click">Ver Detalhes</ion-label>
+              </ion-row>
+            </ion-col>
+          </ion-col>
+        </ion-row>
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

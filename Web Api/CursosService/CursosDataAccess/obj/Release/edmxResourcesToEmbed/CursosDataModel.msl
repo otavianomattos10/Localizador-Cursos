@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="STUDYModelStoreContainer" CdmEntityContainer="STUDYEntities">
+    <EntitySetMapping Name="CURSOS">
+      <EntityTypeMapping TypeName="STUDYModel.CURSO">
+        <MappingFragment StoreEntitySet="CURSOS">
+          <ScalarProperty Name="DATAINICIO" ColumnName="DATAINICIO" />
+          <ScalarProperty Name="VAGAS" ColumnName="VAGAS" />
+          <ScalarProperty Name="CARGAHORARIA" ColumnName="CARGAHORARIA" />
+          <ScalarProperty Name="EMAILUSUARIO" ColumnName="EMAILUSUARIO" />
+          <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+          <ScalarProperty Name="WEBSITE" ColumnName="WEBSITE" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="DETALHE" ColumnName="DETALHE" />
+          <ScalarProperty Name="TELEFONE" ColumnName="TELEFONE" />
+          <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+          <ScalarProperty Name="NUMRESIDENCIA" ColumnName="NUMRESIDENCIA" />
+          <ScalarProperty Name="ENDERECO" ColumnName="ENDERECO" />
+          <ScalarProperty Name="ICONE" ColumnName="ICONE" />
+          <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+          <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+          <ScalarProperty Name="UFCURSO" ColumnName="UFCURSO" />
+          <ScalarProperty Name="DESCUF" ColumnName="DESCUF" />
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="CATEGCURSO" ColumnName="CATEGCURSO" />
+          <ScalarProperty Name="INSTITUICAO" ColumnName="INSTITUICAO" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="DISTANCIA" ColumnName="DISTANCIA" />
+          <ScalarProperty Name="CURSO1" ColumnName="CURSO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOS">
+      <EntityTypeMapping TypeName="STUDYModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+          <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="WEBSITE" ColumnName="WEBSITE" />
+          <ScalarProperty Name="EMAILCOMERCIAL" ColumnName="EMAILCOMERCIAL" />
+          <ScalarProperty Name="WHATSAPP" ColumnName="WHATSAPP" />
+          <ScalarProperty Name="CELULAR" ColumnName="CELULAR" />
+          <ScalarProperty Name="TELEFONE" ColumnName="TELEFONE" />
+          <ScalarProperty Name="PAIS" ColumnName="PAIS" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+          <ScalarProperty Name="NUMEROLOCAL" ColumnName="NUMEROLOCAL" />
+          <ScalarProperty Name="ENDERECO" ColumnName="ENDERECO" />
+          <ScalarProperty Name="NOMECOMPLETO" ColumnName="NOMECOMPLETO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUBLICIDADEs">
+      <EntityTypeMapping TypeName="STUDYModel.PUBLICIDADE">
+        <MappingFragment StoreEntitySet="PUBLICIDADE">
+          <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+          <ScalarProperty Name="INSTITUICAO" ColumnName="INSTITUICAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADOS">
+      <EntityTypeMapping TypeName="STUDYModel.ESTADO">
+        <MappingFragment StoreEntitySet="ESTADOS">
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="CODIGO_UF" ColumnName="CODIGO_UF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MUNICIPIOS">
+      <EntityTypeMapping TypeName="STUDYModel.MUNICIPIO">
+        <MappingFragment StoreEntitySet="MUNICIPIOS">
+          <ScalarProperty Name="CODIGO_UF" ColumnName="CODIGO_UF" />
+          <ScalarProperty Name="CAPITAL" ColumnName="CAPITAL" />
+          <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+          <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="CODIGO_IBGE" ColumnName="CODIGO_IBGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CATEGORIAS">
+      <EntityTypeMapping TypeName="STUDYModel.CATEGORIA">
+        <MappingFragment StoreEntitySet="CATEGORIAS">
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CURSOSFAVORITOS">
+      <EntityTypeMapping TypeName="STUDYModel.CURSOSFAVORITO">
+        <MappingFragment StoreEntitySet="CURSOSFAVORITOS">
+          <ScalarProperty Name="CURSO" ColumnName="CURSO" />
+          <ScalarProperty Name="IDCURSO" ColumnName="IDCURSO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

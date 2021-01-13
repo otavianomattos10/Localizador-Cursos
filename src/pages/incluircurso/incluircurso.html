@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Novo Curso</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-border>
+
+    <form [formGroup]="formCurso">
+
+      <ion-item>
+        <ion-label floating>Título do Curso</ion-label>
+        <ion-input type="text" formControlName="curso"></ion-input>
+        <div item-content>
+          <p *ngIf="formCurso.hasError('required', 'curso')">Esse campo é obrigatório</p>
+          <p *ngIf="formCurso.hasError('minlength', 'curso')">O campo deve ter no mínimo 3 caracteres</p>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Categoria</ion-label>
+        <ion-select formControlName="categoria" [selectOptions]="ListaCategLocOpts">
+          <ion-option *ngFor="let p of allCategory"
+            (ionSelect)="stpSelectCategoria(p.NOME)">{{p.NOME}}</ion-option>
+        </ion-select>
+        <div item-content>
+          <p *ngIf="formCurso.hasError('required', 'categoria')">Esse campo é obrigatório</p>
+        </div>
+      </ion-item>
+
+      <ion-item *ngIf="novaCategoria">
+        <ion-label floating>Informe a Nova Categoria</ion-label>
+        <ion-input formControlName="novacategoria"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Preço</ion-label>
+        <ion-input formControlName="preco" [brmasker]="{money: true}"></ion-input>
+        <div item-content>
+          <p *ngIf="formCurso.hasError('maxlength', 'preco')">O preço máximo excedeu o limite</p>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Carga Horária</ion-label>
+        <ion-input formControlName="cargahoraria" maxlength="4" [brmasker]="{mask:'0000', len:4, type:'num'}"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Vagas</ion-label>
+        <ion-input formControlName="vagas" maxlength="4" [brmasker]="{mask:'0000', len:4, type:'num'}"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label floating>Data Prevista de Inicio</ion-label>
+        <ion-input formControlName="datainicio" [brmasker]="{mask:'00/00/0000', len:10, type:'num'}"></ion-input>
+      </ion-item>      
+
+      <ion-item>
+        <ion-label floating>Descrição do Curso</ion-label>
+        <ion-textarea rows=13 maxlength="300" formControlName="descricao"></ion-textarea>
+        <div item-content>
+          <p *ngIf="formCurso.hasError('required', 'descricao')">Esse campo é obrigatório</p>
+        </div>
+      </ion-item>
+
+    </form>
+
+  </ion-list>
+
+  <ion-item>
+    <button ion-button style="height: 50px; font-size: 15px" expand full (click)="uploadImage()">
+      Selecione a Imagem deste Curso
+    </button>
+  </ion-item>
+
+  <ion-card>
+    <img src="{{imageUpload}}" />
+  </ion-card>
+
+  <ion-item>
+    <ion-footer>
+      <ion-toolbar>
+        <button ion-button style="height: 50px; font-size: 15px" expand full (click)="finalizarCadastro()" [disabled]="!formCurso.valid">
+          Finalizar Cadastro
+        </button>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-item>
+
+</ion-content>

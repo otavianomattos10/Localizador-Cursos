@@ -1,0 +1,46 @@
+<!--
+  Generated template for the DetalhesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{cursoSelecionado}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="cards-bg">
+  <ion-card class="main-card" *ngFor="let result of resultado">
+    <img class="main-img" src="{{result.IMAGEMCURSO}}"/>
+  </ion-card>
+
+<br>
+
+<ion-list *ngFor="let result of resultado">
+  <ion-item>
+    <h2 class="font-header">Detalhes do Curso</h2>
+    <br>
+    <p style="white-space: pre-line; text-transform: capitalize">{{result.DETALHE}}</p>
+  </ion-item>
+  <ion-item>
+      <h2 class="font-header">Contato:</h2>
+      <br>
+      <p>+55 ({{result.DDD}}) {{result.TELEFONE}}</p>
+      <br>
+      <a href="{{result.WEBSITE}}">{{result.WEBSITE}}</a>
+      <br>
+      <br>
+      <p>{{result.ENDERECO}}, {{result.NUMRESIDENCIA}}</p>
+      <p>{{result.CEP}}, {{result.BAIRRO}}</p>
+      <p>{{result.CIDADE}}, {{result.DESCUF}}</p>
+      <br>
+    </ion-item>  
+
+    <button ion-button block (click)="excluirCurso(result)">Excluir Curso</button>
+
+</ion-list>
+
+</ion-content>

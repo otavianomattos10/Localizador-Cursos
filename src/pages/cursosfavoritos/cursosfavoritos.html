@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Meus Favoritos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let favorito of favoritos" (click)="favoritoSelecionado(favorito)">
+    <ion-card-content>
+      <ion-card-title>
+        <ion-row>
+          <ion-col>
+            <img src="{{favorito.IMAGEMCURSO}}" />
+          </ion-col>
+          <ion-col class="ion-no-margin" col-9>
+            <ion-row>
+              <ion-label class="font-header">{{favorito.INSTITUICAO}}</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-label class="font-detail">Categoria : {{favorito.CATEGCURSO}}</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-label class="font-detail">Curso: {{favorito.CURSO1}}</ion-label>
+            </ion-row>
+            <ion-col>
+              <ion-row>
+                <ion-label class="font-detail-money">R{{favorito.VALOR | currency}}*</ion-label>
+                <ion-label class="font-detail-click">Ver Detalhes</ion-label>
+                <ion-label class="font-detail-km">
+                  <ion-icon class="fas fa-map-marker-alt" style="font-size: 10px"></ion-icon>
+                  {{favorito.DISTANCIA}} KM
+                </ion-label>
+              </ion-row>
+            </ion-col>
+          </ion-col>
+        </ion-row>
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

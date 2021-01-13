@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="logOut($event)">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Anúncios</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="cards-bg">
+  <ion-list>
+    <ion-item style="height: 100px">
+      <ion-slides *ngIf="allPublicidades && allPublicidades" pager="true">
+        <ion-slide style="height: 100px" *ngFor="let publicidade of allPublicidades">
+          <img style="margin: auto; padding: 30%" src="{{publicidade.IMAGEMPUBLICIDADE | async}}">
+        </ion-slide>
+      </ion-slides>
+    </ion-item>
+  </ion-list>
+  <ion-card *ngFor="let result of allInf" (click)="clickCard(result)">
+    <ion-card-content>
+      <ion-card-title>
+        <ion-row>
+          <ion-col>
+            <img src="{{result.IMAGEMCURSO}}" />
+          </ion-col>
+          <ion-col class="ion-no-margin" col-9>
+            <ion-row>
+              <ion-label class="font-header">{{result.INSTITUICAO}}</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-label class="font-detail">Categoria : {{result.CATEGCURSO}}</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-label class="font-detail">Curso: {{result.CURSO1}}</ion-label>
+            </ion-row>
+            <ion-col>
+              <ion-row>
+                <ion-label class="font-detail-money">R{{result.VALOR | currency}}*</ion-label>
+                <ion-label class="font-detail-click">Ver Detalhes</ion-label>
+                <ion-label class="font-detail-km">
+                  <ion-icon class="fas fa-map-marker-alt" style="font-size: 10px"></ion-icon>
+                  {{result.DISTANCIA}} KM
+                </ion-label>
+              </ion-row>
+            </ion-col>
+          </ion-col>
+        </ion-row>
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+  <h2 *ngIf="!allInf?.length" style="text-align: center">
+    {{noRegisters}}
+  </h2>
+
+</ion-content>

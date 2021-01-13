@@ -1,0 +1,57 @@
+page-home {
+    ion-card{
+        height: auto;        
+        img {       
+            margin: -10px; 
+            height: 60px;
+            width: auto !important;
+            width: 90%;            
+        }
+
+        .ion-no-margin{
+            margin: -35px;
+        }
+
+        .font-header{
+            color: #111; 
+            font-family: 'Helvetica Neue', sans-serif; 
+            font-size: 16px; 
+            font-weight: bold; 
+            letter-spacing: -1px; 
+            line-height: 1; 
+            text-align: left;
+        }
+
+        .font-detail{
+            color: grey;
+            font-family: 'Source Sans Pro', sans-serif; 
+            font-size: 12px; 
+            text-align: left;
+            margin: 0px;
+        }
+
+        .font-detail-money{
+            color: darkgreen;
+            font-family: 'Source Sans Pro', sans-serif; 
+            font-size: 12px; 
+            text-align: left;
+            margin: 0px;
+        }
+        
+        .font-detail-click{
+            color: blue;
+            font-family: 'Source Sans Pro', sans-serif; 
+            font-size: 12px; 
+            text-align: left;
+            margin: 0px;
+        }
+
+        .font-detail-km{
+            color: grey;
+            font-family: 'Source Sans Pro', sans-serif; 
+            font-size: 12px; 
+            text-align: center;
+            margin: 0px;
+        }
+    }
+}

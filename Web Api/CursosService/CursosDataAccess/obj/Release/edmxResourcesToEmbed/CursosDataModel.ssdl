@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STUDYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CATEGORIAS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOME" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CURSOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="UFCURSO" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="DESCUF" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="CIDADE" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="CATEGCURSO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="INSTITUICAO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VALOR" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DISTANCIA" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="CURSO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LATITUDE" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="LONGITUDE" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="ICONE" Type="varchar" MaxLength="50" />
+    <Property Name="ENDERECO" Type="varchar" MaxLength="150" />
+    <Property Name="NUMRESIDENCIA" Type="varchar" MaxLength="5" />
+    <Property Name="BAIRRO" Type="varchar" MaxLength="100" />
+    <Property Name="TELEFONE" Type="varchar" MaxLength="18" />
+    <Property Name="DETALHE" Type="varchar" MaxLength="300" />
+    <Property Name="CEP" Type="varchar" MaxLength="9" />
+    <Property Name="WEBSITE" Type="varchar" MaxLength="50" />
+    <Property Name="ATIVO" Type="varchar" MaxLength="3" />
+    <Property Name="EMAILUSUARIO" Type="varchar" MaxLength="100" />
+    <Property Name="CARGAHORARIA" Type="varchar" MaxLength="4" />
+    <Property Name="VAGAS" Type="varchar" MaxLength="4" />
+    <Property Name="DATAINICIO" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CURSOSFAVORITOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IDCURSO" Type="int" />
+    <Property Name="CURSO" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'STUDY.dbo.ESTADOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ESTADOS">
+    <Key>
+      <PropertyRef Name="CODIGO_UF" />
+    </Key>
+    <Property Name="CODIGO_UF" Type="int" Nullable="false" />
+    <Property Name="UF" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="NOME" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'STUDY.dbo.MUNICIPIOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MUNICIPIOS">
+    <Key>
+      <PropertyRef Name="CODIGO_IBGE" />
+    </Key>
+    <Property Name="CODIGO_IBGE" Type="int" Nullable="false" />
+    <Property Name="NOME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="LATITUDE" Type="real" Nullable="false" />
+    <Property Name="LONGITUDE" Type="real" Nullable="false" />
+    <Property Name="CAPITAL" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="CODIGO_UF" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'STUDY.dbo.PUBLICIDADE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PUBLICIDADE">
+    <Key>
+      <PropertyRef Name="INSTITUICAO" />
+      <PropertyRef Name="ATIVO" />
+    </Key>
+    <Property Name="INSTITUICAO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ATIVO" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NOMECOMPLETO" Type="varchar" MaxLength="100" />
+    <Property Name="ENDERECO" Type="varchar" MaxLength="150" />
+    <Property Name="NUMEROLOCAL" Type="varchar" MaxLength="6" />
+    <Property Name="BAIRRO" Type="varchar" MaxLength="100" />
+    <Property Name="CIDADE" Type="varchar" MaxLength="100" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="50" />
+    <Property Name="PAIS" Type="varchar" MaxLength="100" />
+    <Property Name="TELEFONE" Type="varchar" MaxLength="18" />
+    <Property Name="CELULAR" Type="varchar" MaxLength="18" />
+    <Property Name="WHATSAPP" Type="varchar" MaxLength="18" />
+    <Property Name="EMAILCOMERCIAL" Type="varchar" MaxLength="100" />
+    <Property Name="WEBSITE" Type="varchar" MaxLength="50" />
+    <Property Name="UF" Type="varchar" MaxLength="2" />
+    <Property Name="CEP" Type="varchar" MaxLength="9" />
+    <Property Name="LATITUDE" Type="decimal" Precision="18" Scale="8" />
+    <Property Name="LONGITUDE" Type="decimal" Precision="18" Scale="8" />
+  </EntityType>
+  <EntityContainer Name="STUDYModelStoreContainer">
+    <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CURSOS" EntityType="Self.CURSOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CURSOSFAVORITOS" EntityType="Self.CURSOSFAVORITOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADOS" EntityType="Self.ESTADOS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ESTADOS].[CODIGO_UF] AS [CODIGO_UF], 
+    [ESTADOS].[UF] AS [UF], 
+    [ESTADOS].[NOME] AS [NOME]
+    FROM [dbo].[ESTADOS] AS [ESTADOS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="MUNICIPIOS" EntityType="Self.MUNICIPIOS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MUNICIPIOS].[CODIGO_IBGE] AS [CODIGO_IBGE], 
+    [MUNICIPIOS].[NOME] AS [NOME], 
+    [MUNICIPIOS].[LATITUDE] AS [LATITUDE], 
+    [MUNICIPIOS].[LONGITUDE] AS [LONGITUDE], 
+    [MUNICIPIOS].[CAPITAL] AS [CAPITAL], 
+    [MUNICIPIOS].[CODIGO_UF] AS [CODIGO_UF]
+    FROM [dbo].[MUNICIPIOS] AS [MUNICIPIOS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PUBLICIDADE" EntityType="Self.PUBLICIDADE" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PUBLICIDADE].[INSTITUICAO] AS [INSTITUICAO], 
+    [PUBLICIDADE].[ATIVO] AS [ATIVO]
+    FROM [dbo].[PUBLICIDADE] AS [PUBLICIDADE]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

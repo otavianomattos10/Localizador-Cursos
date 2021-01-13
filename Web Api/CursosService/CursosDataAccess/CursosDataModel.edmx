@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="STUDYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CATEGORIAS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CURSOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UFCURSO" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="DESCUF" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="CATEGCURSO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="INSTITUICAO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="VALOR" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DISTANCIA" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="CURSO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LATITUDE" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="LONGITUDE" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="ICONE" Type="varchar" MaxLength="50" />
+          <Property Name="ENDERECO" Type="varchar" MaxLength="150" />
+          <Property Name="NUMRESIDENCIA" Type="varchar" MaxLength="5" />
+          <Property Name="BAIRRO" Type="varchar" MaxLength="100" />
+          <Property Name="TELEFONE" Type="varchar" MaxLength="18" />
+          <Property Name="DETALHE" Type="varchar" MaxLength="300" />
+          <Property Name="CEP" Type="varchar" MaxLength="9" />
+          <Property Name="WEBSITE" Type="varchar" MaxLength="50" />
+          <Property Name="ATIVO" Type="varchar" MaxLength="3" />
+          <Property Name="EMAILUSUARIO" Type="varchar" MaxLength="100" />
+          <Property Name="CARGAHORARIA" Type="varchar" MaxLength="4" />
+          <Property Name="VAGAS" Type="varchar" MaxLength="4" />
+          <Property Name="DATAINICIO" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CURSOSFAVORITOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IDCURSO" Type="int" />
+          <Property Name="CURSO" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'STUDY.dbo.ESTADOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ESTADOS">
+          <Key>
+            <PropertyRef Name="CODIGO_UF" />
+            
+            
+          </Key>
+          <Property Name="CODIGO_UF" Type="int" Nullable="false" />
+          <Property Name="UF" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'STUDY.dbo.MUNICIPIOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MUNICIPIOS">
+          <Key>
+            <PropertyRef Name="CODIGO_IBGE" />
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="CODIGO_IBGE" Type="int" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LATITUDE" Type="real" Nullable="false" />
+          <Property Name="LONGITUDE" Type="real" Nullable="false" />
+          <Property Name="CAPITAL" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="CODIGO_UF" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'STUDY.dbo.PUBLICIDADE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PUBLICIDADE">
+          <Key>
+            <PropertyRef Name="INSTITUICAO" />
+            <PropertyRef Name="ATIVO" />
+          </Key>
+          <Property Name="INSTITUICAO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ATIVO" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NOMECOMPLETO" Type="varchar" MaxLength="100" />
+          <Property Name="ENDERECO" Type="varchar" MaxLength="150" />
+          <Property Name="NUMEROLOCAL" Type="varchar" MaxLength="6" />
+          <Property Name="BAIRRO" Type="varchar" MaxLength="100" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="100" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="50" />
+          <Property Name="PAIS" Type="varchar" MaxLength="100" />
+          <Property Name="TELEFONE" Type="varchar" MaxLength="18" />
+          <Property Name="CELULAR" Type="varchar" MaxLength="18" />
+          <Property Name="WHATSAPP" Type="varchar" MaxLength="18" />
+          <Property Name="EMAILCOMERCIAL" Type="varchar" MaxLength="100" />
+          <Property Name="WEBSITE" Type="varchar" MaxLength="50" />
+          <Property Name="UF" Type="varchar" MaxLength="2" />
+          <Property Name="CEP" Type="varchar" MaxLength="9" />
+          <Property Name="LATITUDE" Type="decimal" Precision="18" Scale="8" />
+          <Property Name="LONGITUDE" Type="decimal" Precision="18" Scale="8" />
+        </EntityType>
+        <EntityContainer Name="STUDYModelStoreContainer">
+          <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CURSOS" EntityType="Self.CURSOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CURSOSFAVORITOS" EntityType="Self.CURSOSFAVORITOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTADOS" EntityType="Self.ESTADOS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ESTADOS].[CODIGO_UF] AS [CODIGO_UF], 
+    [ESTADOS].[UF] AS [UF], 
+    [ESTADOS].[NOME] AS [NOME]
+    FROM [dbo].[ESTADOS] AS [ESTADOS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MUNICIPIOS" EntityType="Self.MUNICIPIOS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MUNICIPIOS].[CODIGO_IBGE] AS [CODIGO_IBGE], 
+    [MUNICIPIOS].[NOME] AS [NOME], 
+    [MUNICIPIOS].[LATITUDE] AS [LATITUDE], 
+    [MUNICIPIOS].[LONGITUDE] AS [LONGITUDE], 
+    [MUNICIPIOS].[CAPITAL] AS [CAPITAL], 
+    [MUNICIPIOS].[CODIGO_UF] AS [CODIGO_UF]
+    FROM [dbo].[MUNICIPIOS] AS [MUNICIPIOS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PUBLICIDADE" EntityType="Self.PUBLICIDADE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PUBLICIDADE].[INSTITUICAO] AS [INSTITUICAO], 
+    [PUBLICIDADE].[ATIVO] AS [ATIVO]
+    FROM [dbo].[PUBLICIDADE] AS [PUBLICIDADE]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="STUDYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CURSO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UFCURSO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCUF" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CIDADE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CATEGCURSO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INSTITUICAO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VALOR" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DISTANCIA" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="CURSO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LATITUDE" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="LONGITUDE" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="ICONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ENDERECO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="NUMRESIDENCIA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="BAIRRO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONE" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="DETALHE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="WEBSITE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ATIVO" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="EMAILUSUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CARGAHORARIA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="VAGAS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DATAINICIO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="STUDYEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CURSOS" EntityType="Self.CURSO" />
+          <EntitySet Name="USUARIOS" EntityType="STUDYModel.USUARIO" />
+          <EntitySet Name="PUBLICIDADEs" EntityType="STUDYModel.PUBLICIDADE" />
+          <EntitySet Name="ESTADOS" EntityType="STUDYModel.ESTADO" />
+          <EntitySet Name="MUNICIPIOS" EntityType="STUDYModel.MUNICIPIO" />
+          <EntitySet Name="CATEGORIAS" EntityType="STUDYModel.CATEGORIA" />
+          <EntitySet Name="CURSOSFAVORITOS" EntityType="STUDYModel.CURSOSFAVORITO" />
+        </EntityContainer>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NOMECOMPLETO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ENDERECO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="NUMEROLOCAL" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="BAIRRO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CIDADE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAIS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONE" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="CELULAR" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="WHATSAPP" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="EMAILCOMERCIAL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="WEBSITE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UF" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="LATITUDE" Type="Decimal" Precision="18" Scale="8" />
+          <Property Name="LONGITUDE" Type="Decimal" Precision="18" Scale="8" />
+        </EntityType>
+        <EntityType Name="PUBLICIDADE">
+          <Key>
+            <PropertyRef Name="INSTITUICAO" />
+            <PropertyRef Name="ATIVO" />
+          </Key>
+          <Property Name="INSTITUICAO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ATIVO" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ESTADO">
+          <Key>
+            <PropertyRef Name="CODIGO_UF" />
+          </Key>
+          <Property Name="CODIGO_UF" Type="Int32" Nullable="false" />
+          <Property Name="UF" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="NOME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MUNICIPIO">
+          <Key>
+            <PropertyRef Name="CODIGO_IBGE" />
+          </Key>
+          <Property Name="CODIGO_IBGE" Type="Int32" Nullable="false" />
+          <Property Name="NOME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LATITUDE" Type="Single" Nullable="false" />
+          <Property Name="LONGITUDE" Type="Single" Nullable="false" />
+          <Property Name="CAPITAL" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGO_UF" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CURSOSFAVORITO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDCURSO" Type="Int32" />
+          <Property Name="CURSO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="STUDYModelStoreContainer" CdmEntityContainer="STUDYEntities">
+          <EntitySetMapping Name="CURSOS">
+            <EntityTypeMapping TypeName="STUDYModel.CURSO">
+              <MappingFragment StoreEntitySet="CURSOS">
+                <ScalarProperty Name="DATAINICIO" ColumnName="DATAINICIO" />
+                <ScalarProperty Name="VAGAS" ColumnName="VAGAS" />
+                <ScalarProperty Name="CARGAHORARIA" ColumnName="CARGAHORARIA" />
+                <ScalarProperty Name="EMAILUSUARIO" ColumnName="EMAILUSUARIO" />
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+                <ScalarProperty Name="WEBSITE" ColumnName="WEBSITE" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="DETALHE" ColumnName="DETALHE" />
+                <ScalarProperty Name="TELEFONE" ColumnName="TELEFONE" />
+                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+                <ScalarProperty Name="NUMRESIDENCIA" ColumnName="NUMRESIDENCIA" />
+                <ScalarProperty Name="ENDERECO" ColumnName="ENDERECO" />
+                <ScalarProperty Name="ICONE" ColumnName="ICONE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="UFCURSO" ColumnName="UFCURSO" />
+                <ScalarProperty Name="DESCUF" ColumnName="DESCUF" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="CATEGCURSO" ColumnName="CATEGCURSO" />
+                <ScalarProperty Name="INSTITUICAO" ColumnName="INSTITUICAO" />
+                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+                <ScalarProperty Name="DISTANCIA" ColumnName="DISTANCIA" />
+                <ScalarProperty Name="CURSO1" ColumnName="CURSO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="STUDYModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="UF" ColumnName="UF" />
+                <ScalarProperty Name="WEBSITE" ColumnName="WEBSITE" />
+                <ScalarProperty Name="EMAILCOMERCIAL" ColumnName="EMAILCOMERCIAL" />
+                <ScalarProperty Name="WHATSAPP" ColumnName="WHATSAPP" />
+                <ScalarProperty Name="CELULAR" ColumnName="CELULAR" />
+                <ScalarProperty Name="TELEFONE" ColumnName="TELEFONE" />
+                <ScalarProperty Name="PAIS" ColumnName="PAIS" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+                <ScalarProperty Name="NUMEROLOCAL" ColumnName="NUMEROLOCAL" />
+                <ScalarProperty Name="ENDERECO" ColumnName="ENDERECO" />
+                <ScalarProperty Name="NOMECOMPLETO" ColumnName="NOMECOMPLETO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUBLICIDADEs">
+            <EntityTypeMapping TypeName="STUDYModel.PUBLICIDADE">
+              <MappingFragment StoreEntitySet="PUBLICIDADE">
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+                <ScalarProperty Name="INSTITUICAO" ColumnName="INSTITUICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADOS">
+            <EntityTypeMapping TypeName="STUDYModel.ESTADO">
+              <MappingFragment StoreEntitySet="ESTADOS">
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="UF" ColumnName="UF" />
+                <ScalarProperty Name="CODIGO_UF" ColumnName="CODIGO_UF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUNICIPIOS">
+            <EntityTypeMapping TypeName="STUDYModel.MUNICIPIO">
+              <MappingFragment StoreEntitySet="MUNICIPIOS">
+                <ScalarProperty Name="CODIGO_UF" ColumnName="CODIGO_UF" />
+                <ScalarProperty Name="CAPITAL" ColumnName="CAPITAL" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="CODIGO_IBGE" ColumnName="CODIGO_IBGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORIAS">
+            <EntityTypeMapping TypeName="STUDYModel.CATEGORIA">
+              <MappingFragment StoreEntitySet="CATEGORIAS">
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CURSOSFAVORITOS">
+            <EntityTypeMapping TypeName="STUDYModel.CURSOSFAVORITO">
+              <MappingFragment StoreEntitySet="CURSOSFAVORITOS">
+                <ScalarProperty Name="CURSO" ColumnName="CURSO" />
+                <ScalarProperty Name="IDCURSO" ColumnName="IDCURSO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
